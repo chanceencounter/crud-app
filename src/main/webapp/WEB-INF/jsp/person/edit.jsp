@@ -14,18 +14,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit Person</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     </head>
     <body>
         <h1>Edit Person</h1>
-        <c:if test="${fn:length(errors) gt 0}">
-            <p>Please correct the following errors in your submission:</p>
-            <ul>
-                <c:forEach items="${errors}" var="error">
-                    <li>${error}</li>
-                </c:forEach>
-            </ul>
-        </c:if>
-        <form action="${pageContext.request.contextPath}/person/edit" method="POST">
+
+        <form id = "person" action="${pageContext.request.contextPath}/person/edit" method="POST">
             <input type="hidden" name="personId" value="${person.personId}"/>
             <br/>
             <label for="firstName">First Name:</label>
@@ -52,4 +49,60 @@
             <input type="submit" name="Submit" value="Submit"/>
         </form>
     </body>
+
+    <script type="text/javascript">
+         $(function() {
+        	 $.validator.addMethod("customemail",
+        			    function(value, element) {
+        			        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value);
+        			    },
+        			    "Invalid email format"
+        			);
+          $("#person").validate({
+            rules: {
+              firstName: {
+                required: true,
+                minlength: 1,
+                maxlength: 50
+              },
+              lastName: {
+                required: true,
+                minlength: 1,
+                maxlength: 50
+              },
+              emailAddress: {
+                required: true,
+                minlength: 1,
+                maxlength: 50
+              },
+              phoneNumber: {
+                  required: true,
+                  minlength: 10,
+                  maxlength: 10,
+                  digits: true
+              streetAddress: {
+            	  required: true,
+                  minlength: 1,
+                  maxlength: 50
+              },
+              city: {
+            	  required: true,
+                  minlength: 1,
+                  maxlength: 50
+              },
+              state: {
+            	  required: true,
+                  minlength: 2,
+                  maxlength: 2
+              },
+              zipCode: {
+            	  required: true,
+            	  minlength: 5,
+            	  maxlength: 5,
+            	  digits: true
+              }
+            }
+          });
+        });
+        </script>
 </html>

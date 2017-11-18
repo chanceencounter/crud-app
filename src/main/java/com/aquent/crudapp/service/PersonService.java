@@ -53,4 +53,8 @@ public interface PersonService {
      * @return list of error messages
      */
     List<String> validatePerson(Person person);
+
+    void addCompany(Integer personId, Integer clientId);
+
+    void removeCompany(Integer personId, Integer clientId);
 }

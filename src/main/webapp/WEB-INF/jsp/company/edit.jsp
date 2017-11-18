@@ -8,7 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Create Company | Crud Application</title>
+		<title>Edit Company</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -24,7 +24,7 @@
 			<div>
 				<h1>Create Company</h1>
 
-				<form id="company" action="${pageContext.request.contextPath}/company/create" method="POST">
+        <form id = "person" action="${pageContext.request.contextPath}/person/edit" method="POST">
 		        <br/>
                 <label for="companyName">First Name:</label>
                 <input type="text" name="companyName" value="${company.companyName}"/>

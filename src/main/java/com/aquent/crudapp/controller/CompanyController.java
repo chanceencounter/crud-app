@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.aquent.crudapp.domain.Company;
 import com.aquent.crudapp.service.CompanyService;
+import com.aquent.crudapp.service.PersonService;
 
 @Controller
 @RequestMapping("company")
@@ -22,6 +23,7 @@ public class CompanyController {
   public static final String COMMAND_DELETE = "Delete";
 
   @Inject private CompanyService companyService;
+  @Inject private PersonService personService;
 
 //  The user should be able to create, edit, delete and list Clients.
 
@@ -82,6 +84,7 @@ public class CompanyController {
   public ModelAndView edit(@PathVariable Integer companyId) {
     ModelAndView modelAndView = new ModelAndView("company/edit");
     modelAndView.addObject("company", companyService.readCompany(companyId));
+    modelAndView.addObject("people", personService.listPeople());
     modelAndView.addObject("errors", new ArrayList<String>());
     return modelAndView;
   }
