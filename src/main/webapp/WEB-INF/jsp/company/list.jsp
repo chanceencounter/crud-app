@@ -28,8 +28,8 @@
                                 <td>${company.companyName}</td>
                                 <td>${company.webUri}</td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/person/edit/${company.companyId}">Edit Person</a>
-                                    <a href="${pageContext.request.contextPath}/person/delete/${company.companyId}">Delete Person</a>
+                                    <a href="${pageContext.request.contextPath}/person/edit/${company.companyId}">Edit Company</a>
+                                    <a href="${pageContext.request.contextPath}/person/delete/${company.companyId}">Delete Company</a>
                                 </td>
                             </tr>
                         </c:forEach>
