@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.aquent.crudapp.domain.Person;
+import com.aquent.crudapp.service.CompanyService;
 import com.aquent.crudapp.service.PersonService;
 
 /**
@@ -25,6 +26,7 @@ public class PersonController {
     public static final String COMMAND_DELETE = "Delete";
 
     @Inject private PersonService personService;
+    @Inject private CompanyService companyService;
 
     /**
      * Renders the listing page.
